@@ -2,8 +2,7 @@ spring:
   application:
     name: spring-boot-admin
   profiles: 
-    active: 
-      - secure
+    active: secure
 server: 
   port: 8788
 
@@ -18,15 +17,6 @@ eureka:   #<1>
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"  #<2>
-  endpoint:
-    health:
-      show-details: ALWAYS
-# end::configuration-eureka[]
 
 ---
 spring:
@@ -35,10 +25,11 @@ spring:
 ---
 spring:
   profiles: secure
-  security:
-    user:
-      name: admin
-      password: admin
+security: 
+  user: 
+    name: admin
+    password: admin
+    
 eureka:
   instance:
     metadata-map:
